@@ -10,8 +10,10 @@ recursive-include imgui *.cpp *.h
 # Additional internal ImgGui configuration
 recursive-include config-cpp *.cpp *.h
 
-# ImGui sources
+# ImGui / Implot sources
 recursive-include imgui-cpp *.cpp *.h
+recursive-include implot-cpp *.cpp *.h
+
 prune imgui-cpp/examples
 prune imgui-cpp/extra_fonts
 
