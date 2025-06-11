@@ -63,7 +63,7 @@ KEY_SPACE = core.KEY_SPACE
 KEY_ENTER = core.KEY_ENTER
 #: for text edit
 KEY_ESCAPE = core.KEY_ESCAPE
-#: 
+#:
 KEY_PAD_ENTER = core.KEY_PAD_ENTER
 #: for text edit CTRL+A: select all
 KEY_A = core.KEY_A
@@ -98,7 +98,7 @@ NAV_INPUT_DPAD_DOWN = core.NAV_INPUT_DPAD_DOWN
 #: scroll / move window (w/ PadMenu)             e.g. Left Analog Stick Left/Right/Up/Down
 NAV_INPUT_L_STICK_LEFT = core.NAV_INPUT_L_STICK_LEFT
 #:
-NAV_INPUT_L_STICK_RIGHT = core.NAV_INPUT_L_STICK_RIGHT 
+NAV_INPUT_L_STICK_RIGHT = core.NAV_INPUT_L_STICK_RIGHT
 #:
 NAV_INPUT_L_STICK_UP = core.NAV_INPUT_L_STICK_UP
 #:
@@ -110,7 +110,7 @@ NAV_INPUT_FOCUS_NEXT = core.NAV_INPUT_FOCUS_NEXT
 #: slower tweaks                                 e.g. L1 or L2 (PS4), LB or LT (Xbox), L or ZL (Switch)
 NAV_INPUT_TWEAK_SLOW = core.NAV_INPUT_TWEAK_SLOW
 #: faster tweaks                                 e.g. R1 or R2 (PS4), RB or RT (Xbox), R or ZL (Switch)
-NAV_INPUT_TWEAK_FAST    = core.NAV_INPUT_TWEAK_FAST
+NAV_INPUT_TWEAK_FAST = core.NAV_INPUT_TWEAK_FAST
 
 
 # === Key Mode Flags (redefines for autodoc)
@@ -371,11 +371,11 @@ COLOR_SEPARATOR_ACTIVE = core.COLOR_SEPARATOR_ACTIVE
 COLOR_RESIZE_GRIP = core.COLOR_RESIZE_GRIP
 COLOR_RESIZE_GRIP_HOVERED = core.COLOR_RESIZE_GRIP_HOVERED
 COLOR_RESIZE_GRIP_ACTIVE = core.COLOR_RESIZE_GRIP_ACTIVE
-COLOR_TAB = COLOR_TAB
-COLOR_TAB_HOVERED = COLOR_TAB_HOVERED                           
-COLOR_TAB_ACTIVE = COLOR_TAB_ACTIVE                            
-COLOR_TAB_UNFOCUSED = COLOR_TAB_UNFOCUSED                         
-COLOR_TAB_UNFOCUSED_ACTIVE = COLOR_TAB_UNFOCUSED_ACTIVE                  
+COLOR_TAB = core.COLOR_TAB
+COLOR_TAB_HOVERED = core.COLOR_TAB_HOVERED
+COLOR_TAB_ACTIVE = core.COLOR_TAB_ACTIVE
+COLOR_TAB_UNFOCUSED = core.COLOR_TAB_UNFOCUSED
+COLOR_TAB_UNFOCUSED_ACTIVE = core.COLOR_TAB_UNFOCUSED_ACTIVE
 COLOR_PLOT_LINES = core.COLOR_PLOT_LINES
 COLOR_PLOT_LINES_HOVERED = core.COLOR_PLOT_LINES_HOVERED
 COLOR_PLOT_HISTOGRAM = core.COLOR_PLOT_HISTOGRAM
@@ -394,15 +394,15 @@ COLOR_MODAL_WINDOW_DIM_BACKGROUND = core.COLOR_MODAL_WINDOW_DIM_BACKGROUND
 COLOR_COUNT = core.COLOR_COUNT
 
 # === Data Type (redefines for autodoc)
-DATA_TYPE_S8     = core.DATA_TYPE_S8    
-DATA_TYPE_U8     = core.DATA_TYPE_U8    
-DATA_TYPE_S16    = core.DATA_TYPE_S16   
-DATA_TYPE_U16    = core.DATA_TYPE_U16   
-DATA_TYPE_S32    = core.DATA_TYPE_S32   
-DATA_TYPE_U32    = core.DATA_TYPE_U32   
-DATA_TYPE_S64    = core.DATA_TYPE_S64   
-DATA_TYPE_U64    = core.DATA_TYPE_U64   
-DATA_TYPE_FLOAT  = core.DATA_TYPE_FLOAT 
+DATA_TYPE_S8 = core.DATA_TYPE_S8
+DATA_TYPE_U8 = core.DATA_TYPE_U8
+DATA_TYPE_S16 = core.DATA_TYPE_S16
+DATA_TYPE_U16 = core.DATA_TYPE_U16
+DATA_TYPE_S32 = core.DATA_TYPE_S32
+DATA_TYPE_U32 = core.DATA_TYPE_U32
+DATA_TYPE_S64 = core.DATA_TYPE_S64
+DATA_TYPE_U64 = core.DATA_TYPE_U64
+DATA_TYPE_FLOAT = core.DATA_TYPE_FLOAT
 DATA_TYPE_DOUBLE = core.DATA_TYPE_DOUBLE
 
 
@@ -437,7 +437,12 @@ COMBO_NO_ARROW_BUTTON = core.COMBO_NO_ARROW_BUTTON
 #: Display only a square arrow button
 COMBO_NO_PREVIEW = core.COMBO_NO_PREVIEW
 #: Shortcut: ``imgui.COMBO_HEIGHT_SMALL | imgui.COMBO_HEIGHT_REGULAR | imgui.COMBO_HEIGHT_LARGE | imgui.COMBO_HEIGHT_LARGEST``.
-COMBO_HEIGHT_MASK = COMBO_HEIGHT_SMALL | COMBO_HEIGHT_REGULAR | COMBO_HEIGHT_LARGE | COMBO_HEIGHT_LARGEST
+COMBO_HEIGHT_MASK = (
+    COMBO_HEIGHT_SMALL
+    | COMBO_HEIGHT_REGULAR
+    | COMBO_HEIGHT_LARGE
+    | COMBO_HEIGHT_LARGEST
+)
 
 # === Tab Bar Flags (redefines for autodoc)
 TAB_BAR_NONE = core.TAB_BAR_NONE
@@ -448,7 +453,9 @@ TAB_BAR_AUTO_SELECT_NEW_TABS = core.TAB_BAR_AUTO_SELECT_NEW_TABS
 #: Disable buttons to open the tab list popup
 TAB_BAR_TAB_LIST_POPUP_BUTTON = core.TAB_BAR_TAB_LIST_POPUP_BUTTON
 #: Disable behavior of closing tabs (that are submitted with p_open != NULL) with middle mouse button. You can still repro this behavior on user's side with if (IsItemHovered() && IsMouseClicked(2)) *p_open = false.
-TAB_BAR_NO_CLOSE_WITH_MIDDLE_MOUSE_BUTTON = core.TAB_BAR_NO_CLOSE_WITH_MIDDLE_MOUSE_BUTTON
+TAB_BAR_NO_CLOSE_WITH_MIDDLE_MOUSE_BUTTON = (
+    core.TAB_BAR_NO_CLOSE_WITH_MIDDLE_MOUSE_BUTTON
+)
 #: Disable scrolling buttons (apply when fitting policy is ImGuiTabBarFlags_FittingPolicyScroll)
 TAB_BAR_NO_TAB_LIST_SCROLLING_BUTTONS = core.TAB_BAR_NO_TAB_LIST_SCROLLING_BUTTONS
 #: Disable tooltips when hovering a tab
@@ -469,7 +476,9 @@ TAB_ITEM_UNSAVED_DOCUMENT = core.TAB_ITEM_UNSAVED_DOCUMENT
 #: Trigger flag to programmatically make the tab selected when calling BeginTabItem()
 TAB_ITEM_SET_SELECTED = core.TAB_ITEM_SET_SELECTED
 #: Disable behavior of closing tabs (that are submitted with p_open != NULL) with middle mouse button. You can still repro this behavior on user's side with if (IsItemHovered() && IsMouseClicked(2)) *p_open = false.
-TAB_ITEM_NO_CLOSE_WITH_MIDDLE_MOUSE_BUTTON = core.TAB_ITEM_NO_CLOSE_WITH_MIDDLE_MOUSE_BUTTON
+TAB_ITEM_NO_CLOSE_WITH_MIDDLE_MOUSE_BUTTON = (
+    core.TAB_ITEM_NO_CLOSE_WITH_MIDDLE_MOUSE_BUTTON
+)
 #: Don't call PushID(tab->ID)/PopID() on BeginTabItem()/EndTabItem()
 TAB_ITEM_NO_PUSH_ID = core.TAB_ITEM_NO_PUSH_ID
 #: Disable tooltip for the given tab
@@ -485,144 +494,144 @@ TAB_ITEM_TRAILING = core.TAB_ITEM_TRAILING
 # === Table Flags ===
 #: # Features
 #: None
-TABLE_NONE                   = core.TABLE_NONE
+TABLE_NONE = core.TABLE_NONE
 #: Enable resizing columns.
-TABLE_RESIZABLE              = core.TABLE_RESIZABLE
+TABLE_RESIZABLE = core.TABLE_RESIZABLE
 #: Enable reordering columns in header row (need calling TableSetupColumn() + TableHeadersRow() to display headers)
-TABLE_REORDERABLE            = core.TABLE_REORDERABLE
+TABLE_REORDERABLE = core.TABLE_REORDERABLE
 #: Enable hiding/disabling columns in context menu.
-TABLE_HIDEABLE               = core.TABLE_HIDEABLE
+TABLE_HIDEABLE = core.TABLE_HIDEABLE
 #: Enable sorting. Call TableGetSortSpecs() to obtain sort specs. Also see ImGuiTableFlags_SortMulti and ImGuiTableFlags_SortTristate.
-TABLE_SORTABLE               = core.TABLE_SORTABLE
+TABLE_SORTABLE = core.TABLE_SORTABLE
 #: Disable persisting columns order, width and sort settings in the .ini file.
-TABLE_NO_SAVED_SETTINGS      = core.TABLE_NO_SAVED_SETTINGS
+TABLE_NO_SAVED_SETTINGS = core.TABLE_NO_SAVED_SETTINGS
 #: Right-click on columns body/contents will display table context menu. By default it is available in TableHeadersRow().
-TABLE_CONTEXT_MENU_IN_BODY   = core.TABLE_CONTEXT_MENU_IN_BODY
+TABLE_CONTEXT_MENU_IN_BODY = core.TABLE_CONTEXT_MENU_IN_BODY
 #: # Decorations
 #: Set each RowBg color with ImGuiCol_TableRowBg or ImGuiCol_TableRowBgAlt (equivalent of calling TableSetBgColor with ImGuiTableBgFlags_RowBg0 on each row manually)
-TABLE_ROW_BACKGROUND                    = core.TABLE_ROW_BACKGROUND
+TABLE_ROW_BACKGROUND = core.TABLE_ROW_BACKGROUND
 #: Draw horizontal borders between rows.
-TABLE_BORDERS_INNER_HORIZONTAL          = core.TABLE_BORDERS_INNER_HORIZONTAL
+TABLE_BORDERS_INNER_HORIZONTAL = core.TABLE_BORDERS_INNER_HORIZONTAL
 #: Draw horizontal borders at the top and bottom.
-TABLE_BORDERS_OUTER_HORIZONTAL          = core.TABLE_BORDERS_OUTER_HORIZONTAL
+TABLE_BORDERS_OUTER_HORIZONTAL = core.TABLE_BORDERS_OUTER_HORIZONTAL
 #: Draw vertical borders between columns.
-TABLE_BORDERS_INNER_VERTICAL            = core.TABLE_BORDERS_INNER_VERTICAL
+TABLE_BORDERS_INNER_VERTICAL = core.TABLE_BORDERS_INNER_VERTICAL
 #: Draw vertical borders on the left and right sides.
-TABLE_BORDERS_OUTER_VERTICAL            = core.TABLE_BORDERS_OUTER_VERTICAL
+TABLE_BORDERS_OUTER_VERTICAL = core.TABLE_BORDERS_OUTER_VERTICAL
 #: Draw horizontal borders.
-TABLE_BORDERS_HORIZONTAL                = core.TABLE_BORDERS_HORIZONTAL
+TABLE_BORDERS_HORIZONTAL = core.TABLE_BORDERS_HORIZONTAL
 #: Draw vertical borders.
-TABLE_BORDERS_VERTICAL                  = core.TABLE_BORDERS_VERTICAL
+TABLE_BORDERS_VERTICAL = core.TABLE_BORDERS_VERTICAL
 #: Draw inner borders.
-TABLE_BORDERS_INNER                     = core.TABLE_BORDERS_INNER
+TABLE_BORDERS_INNER = core.TABLE_BORDERS_INNER
 #: Draw outer borders.
-TABLE_BORDERS_OUTER                     = core.TABLE_BORDERS_OUTER
+TABLE_BORDERS_OUTER = core.TABLE_BORDERS_OUTER
 #: Draw all borders.
-TABLE_BORDERS                           = core.TABLE_BORDERS
+TABLE_BORDERS = core.TABLE_BORDERS
 #: [ALPHA] Disable vertical borders in columns Body (borders will always appears in Headers). -> May move to style
-TABLE_NO_BORDERS_IN_BODY                = core.TABLE_NO_BORDERS_IN_BODY
+TABLE_NO_BORDERS_IN_BODY = core.TABLE_NO_BORDERS_IN_BODY
 #: [ALPHA] Disable vertical borders in columns Body until hovered for resize (borders will always appears in Headers). -> May move to style
-TABLE_NO_BORDERS_IN_BODY_UTIL_RESIZE    = core.TABLE_NO_BORDERS_IN_BODY_UTIL_RESIZE
+TABLE_NO_BORDERS_IN_BODY_UTIL_RESIZE = core.TABLE_NO_BORDERS_IN_BODY_UTIL_RESIZE
 #: # Sizing Policy (read above for defaults)
 #: Columns default to _WidthFixed or _WidthAuto (if resizable or not resizable), matching contents width.
-TABLE_SIZING_FIXED_FIT      = core.TABLE_SIZING_FIXED_FIT
+TABLE_SIZING_FIXED_FIT = core.TABLE_SIZING_FIXED_FIT
 #: Columns default to _WidthFixed or _WidthAuto (if resizable or not resizable), matching the maximum contents width of all columns. Implicitly enable ImGuiTableFlags_NoKeepColumnsVisible.
-TABLE_SIZING_FIXED_SAME     = core.TABLE_SIZING_FIXED_SAME
+TABLE_SIZING_FIXED_SAME = core.TABLE_SIZING_FIXED_SAME
 #: Columns default to _WidthStretch with default weights proportional to each columns contents widths.
-TABLE_SIZING_STRETCH_PROP   = core.TABLE_SIZING_STRETCH_PROP
+TABLE_SIZING_STRETCH_PROP = core.TABLE_SIZING_STRETCH_PROP
 #: Columns default to _WidthStretch with default weights all equal, unless overriden by TableSetupColumn().
-TABLE_SIZING_STRETCH_SAME   = core.TABLE_SIZING_STRETCH_SAME
+TABLE_SIZING_STRETCH_SAME = core.TABLE_SIZING_STRETCH_SAME
 #: # Sizing Extra Options
 #: Make outer width auto-fit to columns, overriding outer_size.x value. Only available when ScrollX/ScrollY are disabled and Stretch columns are not used.
-TABLE_NO_HOST_EXTEND_X          = core.TABLE_NO_HOST_EXTEND_X
+TABLE_NO_HOST_EXTEND_X = core.TABLE_NO_HOST_EXTEND_X
 #: Make outer height stop exactly at outer_size.y (prevent auto-extending table past the limit). Only available when ScrollX/ScrollY are disabled. Data below the limit will be clipped and not visible.
-TABLE_NO_HOST_EXTEND_Y          = core.TABLE_NO_HOST_EXTEND_Y
+TABLE_NO_HOST_EXTEND_Y = core.TABLE_NO_HOST_EXTEND_Y
 #: Disable keeping column always minimally visible when ScrollX is off and table gets too small. Not recommended if columns are resizable.
-TABLE_NO_KEEP_COLUMNS_VISIBLE   = core.TABLE_NO_KEEP_COLUMNS_VISIBLE
+TABLE_NO_KEEP_COLUMNS_VISIBLE = core.TABLE_NO_KEEP_COLUMNS_VISIBLE
 #: Disable distributing remainder width to stretched columns (width allocation on a 100-wide table with 3 columns: Without this flag: 33,33,34. With this flag: 33,33,33). With larger number of columns, resizing will appear to be less smooth.
-TABLE_PRECISE_WIDTHS            = core.TABLE_PRECISE_WIDTHS
+TABLE_PRECISE_WIDTHS = core.TABLE_PRECISE_WIDTHS
 #: # Clipping
 #: Disable clipping rectangle for every individual columns (reduce draw command count, items will be able to overflow into other columns). Generally incompatible with TableSetupScrollFreeze().
 TABLE_NO_CLIP = core.TABLE_NO_CLIP
 #: # Padding
 #: Default if BordersOuterV is on. Enable outer-most padding. Generally desirable if you have headers.
-TABLE_PAD_OUTER_X       = core.TABLE_PAD_OUTER_X
+TABLE_PAD_OUTER_X = core.TABLE_PAD_OUTER_X
 #: Default if BordersOuterV is off. Disable outer-most padding.
-TABLE_NO_PAD_OUTER_X    = core.TABLE_NO_PAD_OUTER_X
+TABLE_NO_PAD_OUTER_X = core.TABLE_NO_PAD_OUTER_X
 #: Disable inner padding between columns (double inner padding if BordersOuterV is on, single inner padding if BordersOuterV is off).
-TABLE_NO_PAD_INNER_X    = core.TABLE_NO_PAD_INNER_X
+TABLE_NO_PAD_INNER_X = core.TABLE_NO_PAD_INNER_X
 #: # Scrolling
 #: Enable horizontal scrolling. Require 'outer_size' parameter of BeginTable() to specify the container size. Changes default sizing policy. Because this create a child window, ScrollY is currently generally recommended when using ScrollX.
-TABLE_SCROLL_X = core.TABLE_SCROLL_X 
+TABLE_SCROLL_X = core.TABLE_SCROLL_X
 #: Enable vertical scrolling. Require 'outer_size' parameter of BeginTable() to specify the container size.
 TABLE_SCROLL_Y = core.TABLE_SCROLL_Y
 #: # Sorting
 #: Hold shift when clicking headers to sort on multiple column. TableGetSortSpecs() may return specs where (SpecsCount > 1).
-TABLE_SORT_MULTI    = core.TABLE_SORT_MULTI
+TABLE_SORT_MULTI = core.TABLE_SORT_MULTI
 #: Allow no sorting, disable default sorting. TableGetSortSpecs() may return specs where (SpecsCount == 0).
 TABLE_SORT_TRISTATE = core.TABLE_SORT_TRISTATE
 
 # === Table Column Flags ===
 #: # Input configuration flags
 #: None
-TABLE_COLUMN_NONE                   = core.TABLE_COLUMN_NONE
+TABLE_COLUMN_NONE = core.TABLE_COLUMN_NONE
 #: Default as a hidden/disabled column.
-TABLE_COLUMN_DEFAULT_HIDE           = core.TABLE_COLUMN_DEFAULT_HIDE
+TABLE_COLUMN_DEFAULT_HIDE = core.TABLE_COLUMN_DEFAULT_HIDE
 #: Default as a sorting column.
-TABLE_COLUMN_DEFAULT_SORT           = core.TABLE_COLUMN_DEFAULT_SORT
+TABLE_COLUMN_DEFAULT_SORT = core.TABLE_COLUMN_DEFAULT_SORT
 #: Column will stretch. Preferable with horizontal scrolling disabled (default if table sizing policy is _SizingStretchSame or _SizingStretchProp).
-TABLE_COLUMN_WIDTH_STRETCH          = core.TABLE_COLUMN_WIDTH_STRETCH
+TABLE_COLUMN_WIDTH_STRETCH = core.TABLE_COLUMN_WIDTH_STRETCH
 #: Column will not stretch. Preferable with horizontal scrolling enabled (default if table sizing policy is _SizingFixedFit and table is resizable).
-TABLE_COLUMN_WIDTH_FIXED            = core.TABLE_COLUMN_WIDTH_FIXED
+TABLE_COLUMN_WIDTH_FIXED = core.TABLE_COLUMN_WIDTH_FIXED
 #: Disable manual resizing.
-TABLE_COLUMN_NO_RESIZE              = core.TABLE_COLUMN_NO_RESIZE
+TABLE_COLUMN_NO_RESIZE = core.TABLE_COLUMN_NO_RESIZE
 #: Disable manual reordering this column, this will also prevent other columns from crossing over this column.
-TABLE_COLUMN_NO_REORDER             = core.TABLE_COLUMN_NO_REORDER
+TABLE_COLUMN_NO_REORDER = core.TABLE_COLUMN_NO_REORDER
 #: Disable ability to hide/disable this column.
-TABLE_COLUMN_NO_HIDE                = core.TABLE_COLUMN_NO_HIDE
+TABLE_COLUMN_NO_HIDE = core.TABLE_COLUMN_NO_HIDE
 #: Disable clipping for this column (all NoClip columns will render in a same draw command).
-TABLE_COLUMN_NO_CLIP                = core.TABLE_COLUMN_NO_CLIP
+TABLE_COLUMN_NO_CLIP = core.TABLE_COLUMN_NO_CLIP
 #: Disable ability to sort on this field (even if ImGuiTableFlags_Sortable is set on the table).
-TABLE_COLUMN_NO_SORT                = core.TABLE_COLUMN_NO_SORT
+TABLE_COLUMN_NO_SORT = core.TABLE_COLUMN_NO_SORT
 #: Disable ability to sort in the ascending direction.
-TABLE_COLUMN_NO_SORT_ASCENDING      = core.TABLE_COLUMN_NO_SORT_ASCENDING
+TABLE_COLUMN_NO_SORT_ASCENDING = core.TABLE_COLUMN_NO_SORT_ASCENDING
 #: Disable ability to sort in the descending direction.
-TABLE_COLUMN_NO_SORT_DESCENDING     = core.TABLE_COLUMN_NO_SORT_DESCENDING
+TABLE_COLUMN_NO_SORT_DESCENDING = core.TABLE_COLUMN_NO_SORT_DESCENDING
 #: Disable header text width contribution to automatic column width.
-TABLE_COLUMN_NO_HEADER_WIDTH        = core.TABLE_COLUMN_NO_HEADER_WIDTH
+TABLE_COLUMN_NO_HEADER_WIDTH = core.TABLE_COLUMN_NO_HEADER_WIDTH
 #: Make the initial sort direction Ascending when first sorting on this column (default).
-TABLE_COLUMN_PREFER_SORT_ASCENDING  = core.TABLE_COLUMN_PREFER_SORT_ASCENDING
+TABLE_COLUMN_PREFER_SORT_ASCENDING = core.TABLE_COLUMN_PREFER_SORT_ASCENDING
 #: Make the initial sort direction Descending when first sorting on this column.
 TABLE_COLUMN_PREFER_SORT_DESCENDING = core.TABLE_COLUMN_PREFER_SORT_DESCENDING
 #: Use current Indent value when entering cell (default for column 0).
-TABLE_COLUMN_INDENT_ENABLE          = core.TABLE_COLUMN_INDENT_ENABLE
+TABLE_COLUMN_INDENT_ENABLE = core.TABLE_COLUMN_INDENT_ENABLE
 #: Ignore current Indent value when entering cell (default for columns > 0). Indentation changes _within_ the cell will still be honored.
-TABLE_COLUMN_INDENT_DISABLE         = core.TABLE_COLUMN_INDENT_DISABLE
+TABLE_COLUMN_INDENT_DISABLE = core.TABLE_COLUMN_INDENT_DISABLE
 #: # Output status flags, read-only via TableGetColumnFlags()
 #: Status: is enabled == not hidden by user/api (referred to as "Hide" in _DefaultHide and _NoHide) flags.
-TABLE_COLUMN_IS_ENABLED     = core.TABLE_COLUMN_IS_ENABLED
+TABLE_COLUMN_IS_ENABLED = core.TABLE_COLUMN_IS_ENABLED
 #: Status: is visible == is enabled AND not clipped by scrolling.
-TABLE_COLUMN_IS_VISIBLE     = core.TABLE_COLUMN_IS_VISIBLE
+TABLE_COLUMN_IS_VISIBLE = core.TABLE_COLUMN_IS_VISIBLE
 #: Status: is currently part of the sort specs
-TABLE_COLUMN_IS_SORTED      = core.TABLE_COLUMN_IS_SORTED
+TABLE_COLUMN_IS_SORTED = core.TABLE_COLUMN_IS_SORTED
 #: Status: is hovered by mouse
-TABLE_COLUMN_IS_HOVERED     = core.TABLE_COLUMN_IS_HOVERED
+TABLE_COLUMN_IS_HOVERED = core.TABLE_COLUMN_IS_HOVERED
 
 # === Table Row Flags ===
 #: None
-TABLE_ROW_NONE      = core.TABLE_ROW_NONE
+TABLE_ROW_NONE = core.TABLE_ROW_NONE
 #: Identify header row (set default background color + width of its contents accounted different for auto column width)
-TABLE_ROW_HEADERS   = core.TABLE_ROW_HEADERS
+TABLE_ROW_HEADERS = core.TABLE_ROW_HEADERS
 
 # === Table Background Target ===
 #: None
-TABLE_BACKGROUND_TARGET_NONE        = core.TABLE_BACKGROUND_TARGET_NONE
+TABLE_BACKGROUND_TARGET_NONE = core.TABLE_BACKGROUND_TARGET_NONE
 #: Set row background color 0 (generally used for background, automatically set when ImGuiTableFlags_RowBg is used)
-TABLE_BACKGROUND_TARGET_ROW_BG0     = core.TABLE_BACKGROUND_TARGET_ROW_BG0
+TABLE_BACKGROUND_TARGET_ROW_BG0 = core.TABLE_BACKGROUND_TARGET_ROW_BG0
 #: Set row background color 1 (generally used for selection marking)
-TABLE_BACKGROUND_TARGET_ROW_BG1     = core.TABLE_BACKGROUND_TARGET_ROW_BG1
+TABLE_BACKGROUND_TARGET_ROW_BG1 = core.TABLE_BACKGROUND_TARGET_ROW_BG1
 #: Set cell background color (top-most color)
-TABLE_BACKGROUND_TARGET_CELL_BG     = core.TABLE_BACKGROUND_TARGET_CELL_BG
+TABLE_BACKGROUND_TARGET_CELL_BG = core.TABLE_BACKGROUND_TARGET_CELL_BG
 
 # === Focus flag constants (redefines for autodoc)
 FOCUS_NONE = core.FOCUS_NONE
@@ -649,12 +658,18 @@ HOVERED_ANY_WINDOW = core.HOVERED_ANY_WINDOW
 #: Return true even if a popup window is normally blocking access to this item/window
 HOVERED_ALLOW_WHEN_BLOCKED_BY_POPUP = core.HOVERED_ALLOW_WHEN_BLOCKED_BY_POPUP
 #: Return true even if an active item is blocking access to this item/window. Useful for Drag and Drop patterns.
-HOVERED_ALLOW_WHEN_BLOCKED_BY_ACTIVE_ITEM = core.HOVERED_ALLOW_WHEN_BLOCKED_BY_ACTIVE_ITEM
+HOVERED_ALLOW_WHEN_BLOCKED_BY_ACTIVE_ITEM = (
+    core.HOVERED_ALLOW_WHEN_BLOCKED_BY_ACTIVE_ITEM
+)
 #: Return true even if the position is overlapped by another window
 HOVERED_ALLOW_WHEN_OVERLAPPED = core.HOVERED_ALLOW_WHEN_OVERLAPPED
 HOVERED_ALLOW_WHEN_DISABLED = core.HOVERED_ALLOW_WHEN_DISABLED
 #: Shortcut: ``imgui.HOVERED_ALLOW_WHEN_BLOCKED_BY_POPUP | imgui.HOVERED_ALLOW_WHEN_BLOCKED_BY_ACTIVE_ITEM | imgui.HOVERED_ALLOW_WHEN_OVERLAPPED``.
-HOVERED_RECT_ONLY = core.HOVERED_ALLOW_WHEN_BLOCKED_BY_POPUP | core.HOVERED_ALLOW_WHEN_BLOCKED_BY_ACTIVE_ITEM | core.HOVERED_ALLOW_WHEN_OVERLAPPED
+HOVERED_RECT_ONLY = (
+    core.HOVERED_ALLOW_WHEN_BLOCKED_BY_POPUP
+    | core.HOVERED_ALLOW_WHEN_BLOCKED_BY_ACTIVE_ITEM
+    | core.HOVERED_ALLOW_WHEN_OVERLAPPED
+)
 #: Shortcut: ``imgui.HOVERED_ROOT_WINDOW | imgui.HOVERED_CHILD_WINDOWS``.
 HOVERED_ROOT_AND_CHILD_WINDOWS = core.HOVERED_ROOT_WINDOW | core.HOVERED_CHILD_WINDOWS
 
@@ -709,7 +724,7 @@ DIRECTION_UP = core.DIRECTION_UP
 DIRECTION_DOWN = core.DIRECTION_DOWN
 
 # === Sorting direction
-SORT_DIRECTION_NONE  = core.SORT_DIRECTION_NONE 
+SORT_DIRECTION_NONE = core.SORT_DIRECTION_NONE
 #: Ascending = 0->9, A->Z etc.
 SORT_DIRECTION_ASCENDING = core.SORT_DIRECTION_ASCENDING
 #: Descending = 9->0, Z->A etc.
@@ -796,29 +811,29 @@ DRAW_CORNER_ALL = core.DRAW_CORNER_ALL
 
 # === Draw Flags (redifines for autodoc)
 #: None
-DRAW_NONE                        = core.DRAW_NONE
+DRAW_NONE = core.DRAW_NONE
 #: path_stroke(), add_polyline(): specify that shape should be closed (Important: this is always == 1 for legacy reason)
-DRAW_CLOSED                      = core.DRAW_CLOSED                     
+DRAW_CLOSED = core.DRAW_CLOSED
 #: add_rect(), add_rect_filled(), path_rect(): enable rounding top-left corner only (when rounding > 0.0f, we default to all corners). Was 0x01.
-DRAW_ROUND_CORNERS_TOP_LEFT      = core.DRAW_ROUND_CORNERS_TOP_LEFT     
+DRAW_ROUND_CORNERS_TOP_LEFT = core.DRAW_ROUND_CORNERS_TOP_LEFT
 #: add_rect(), add_rect_filled(), path_rect(): enable rounding top-right corner only (when rounding > 0.0f, we default to all corners). Was 0x02.
-DRAW_ROUND_CORNERS_TOP_RIGHT     = core.DRAW_ROUND_CORNERS_TOP_RIGHT    
+DRAW_ROUND_CORNERS_TOP_RIGHT = core.DRAW_ROUND_CORNERS_TOP_RIGHT
 #: add_rect(), add_rect_filled(), path_rect(): enable rounding bottom-left corner only (when rounding > 0.0f, we default to all corners). Was 0x04.
-DRAW_ROUND_CORNERS_BOTTOM_LEFT   = core.DRAW_ROUND_CORNERS_BOTTOM_LEFT  
+DRAW_ROUND_CORNERS_BOTTOM_LEFT = core.DRAW_ROUND_CORNERS_BOTTOM_LEFT
 #: add_rect(), add_rect_filled(), path_rect(): enable rounding bottom-right corner only (when rounding > 0.0f, we default to all corners). Wax 0x08.
-DRAW_ROUND_CORNERS_BOTTOM_RIGHT  = core.DRAW_ROUND_CORNERS_BOTTOM_RIGHT 
+DRAW_ROUND_CORNERS_BOTTOM_RIGHT = core.DRAW_ROUND_CORNERS_BOTTOM_RIGHT
 #: add_rect(), add_rect_filled(), path_rect(): disable rounding on all corners (when rounding > 0.0f). This is NOT zero, NOT an implicit flag!
-DRAW_ROUND_CORNERS_NONE          = core.DRAW_ROUND_CORNERS_NONE         
+DRAW_ROUND_CORNERS_NONE = core.DRAW_ROUND_CORNERS_NONE
 #: DRAW_ROUND_CORNERS_TOP_LEFT | DRAW_ROUND_CORNERS_TOP_RIGHT
-DRAW_ROUND_CORNERS_TOP           = core.DRAW_ROUND_CORNERS_TOP          
+DRAW_ROUND_CORNERS_TOP = core.DRAW_ROUND_CORNERS_TOP
 #: DRAW_ROUND_CORNERS_BOTTOM_LEFT | DRAW_ROUND_CORNERS_BOTTOM_RIGHT
-DRAW_ROUND_CORNERS_BOTTOM        = core.DRAW_ROUND_CORNERS_BOTTOM       
+DRAW_ROUND_CORNERS_BOTTOM = core.DRAW_ROUND_CORNERS_BOTTOM
 #: DRAW_ROUND_CORNERS_BOTTOM_LEFT | DRAW_ROUND_CORNERS_TOP_LEFT
-DRAW_ROUND_CORNERS_LEFT          = core.DRAW_ROUND_CORNERS_LEFT         
+DRAW_ROUND_CORNERS_LEFT = core.DRAW_ROUND_CORNERS_LEFT
 #: DRAW_ROUND_CORNERS_BOTTOM_RIGHT | DRAW_ROUND_CORNERS_TOP_RIGHT
-DRAW_ROUND_CORNERS_RIGHT         = core.DRAW_ROUND_CORNERS_RIGHT        
+DRAW_ROUND_CORNERS_RIGHT = core.DRAW_ROUND_CORNERS_RIGHT
 #: DRAW_ROUND_CORNERS_TOP_LEFT | DRAW_ROUND_CORNERS_TOP_RIGHT | DRAW_ROUND_CORNERS_BOTTOM_LEFT | DRAW_ROUND_CORNERS_BOTTOM_RIGHT
-DRAW_ROUND_CORNERS_ALL           = core.DRAW_ROUND_CORNERS_ALL          
+DRAW_ROUND_CORNERS_ALL = core.DRAW_ROUND_CORNERS_ALL
 
 # === Draw List Flags (redefines for autodoc)
 DRAW_LIST_NONE = core.DRAW_LIST_NONE
@@ -852,28 +867,27 @@ BACKEND_HAS_SET_MOUSE_POS = core.BACKEND_HAS_SET_MOUSE_POS
 BACKEND_RENDERER_HAS_VTX_OFFSET = core.BACKEND_RENDERER_HAS_VTX_OFFSET
 
 # === Slider flag (redefines for autodoc)
-SLIDER_FLAGS_NONE
+SLIDER_FLAGS_NONE = core.SLIDER_FLAGS_NONE
 #: Clamp value to min/max bounds when input manually with CTRL+Click. By default CTRL+Click allows going out of bounds.
-SLIDER_FLAGS_ALWAYS_CLAMP 
+SLIDER_FLAGS_ALWAYS_CLAMP = core.SLIDER_FLAGS_ALWAYS_CLAMP
 #: Make the widget logarithmic (linear otherwise). Consider using ImGuiSliderFlags_NoRoundToFormat with this if using a format-string with small amount of digits.
-SLIDER_FLAGS_LOGARITHMIC 
+SLIDER_FLAGS_LOGARITHMIC = core.SLIDER_FLAGS_LOGARITHMIC
 #: Disable rounding underlying value to match precision of the display format string (e.g. %.3f values are rounded to those 3 digits)
-SLIDER_FLAGS_NO_ROUND_TO_FORMAT 
+SLIDER_FLAGS_NO_ROUND_TO_FORMAT = core.SLIDER_FLAGS_NO_ROUND_TO_FORMAT
 #: Disable CTRL+Click or Enter key allowing to input text directly into the widget
-SLIDER_FLAGS_NO_INPUT 
+SLIDER_FLAGS_NO_INPUT = core.SLIDER_FLAGS_NO_INPUT
 
 # === Mouse Button (redefines for autodoc)
 MOUSE_BUTTON_LEFT = core.MOUSE_BUTTON_LEFT
 MOUSE_BUTTON_RIGHT = core.MOUSE_BUTTON_RIGHT
-MOUSE_BUTTON_MIDDLE = core.MOUSE_BUTTON_MIDDLE 
+MOUSE_BUTTON_MIDDLE = core.MOUSE_BUTTON_MIDDLE
 
 # === Viewport Flags (redifines for autodoc)
 #: None
-VIEWPORT_FLAGS_NONE                = core.VIEWPORT_FLAGS_NONE
+VIEWPORT_FLAGS_NONE = core.VIEWPORT_FLAGS_NONE
 #: Represent a Platform Window
-VIEWPORT_FLAGS_IS_PLATFORM_WINDOW  = core.VIEWPORT_FLAGS_IS_PLATFORM_WINDOW
+VIEWPORT_FLAGS_IS_PLATFORM_WINDOW = core.VIEWPORT_FLAGS_IS_PLATFORM_WINDOW
 #: Represent a Platform Monitor (unused yet)
 VIEWPORT_FLAGS_IS_PLATFORM_MONITOR = core.VIEWPORT_FLAGS_IS_PLATFORM_MONITOR
 #: Platform Window: is created/managed by the application (rather than a dear imgui backend)
-VIEWPORT_FLAGS_OWNED_BY_APP        = core.VIEWPORT_FLAGS_OWNED_BY_APP         
-
+VIEWPORT_FLAGS_OWNED_BY_APP = core.VIEWPORT_FLAGS_OWNED_BY_APP
