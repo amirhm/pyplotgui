@@ -30,7 +30,7 @@ language_level = "3"
 
 [project]
 name='pyplotgui'  # name on PyPi; still imported as 'imgui'
-version='1.0.0'   # separate versioning from pyimgui
+version='2.0.0'   # separate versioning from pyimgui
 
 authors = [
     {name = 'Erik Härkönen', email = 'erik.harkonen@hotmail.com'}

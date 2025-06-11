@@ -1,9 +1,7 @@
-# -*- coding: utf-8 -*-
-import os
 import sys
 from itertools import chain
 
-from setuptools import setup, Extension, find_packages
+from setuptools import setup, Extension
 
 try:
     from Cython.Build import cythonize
@@ -16,7 +14,8 @@ else:
     USE_CYTHON = True
 
 
-_CYTHONIZE_WITH_COVERAGE = False #os.environ.get("_CYTHONIZE_WITH_COVERAGE", False)
+_CYTHONIZE_WITH_COVERAGE = False
+# os.environ.get("_CYTHONIZE_WITH_COVERAGE", False)
 
 if _CYTHONIZE_WITH_COVERAGE and not USE_CYTHON:
     raise RuntimeError(
@@ -28,19 +27,6 @@ if _CYTHONIZE_WITH_COVERAGE and not USE_CYTHON:
 def read(filename):
     with open(filename, 'r') as file_handle:
         return file_handle.read()
-
-
-def get_version(version_tuple):
-    if not isinstance(version_tuple[-1], int):
-        return '.'.join(map(str, version_tuple[:-1])) + version_tuple[-1]
-    return '.'.join(map(str, version_tuple))
-
-
-init = os.path.join(os.path.dirname(__file__), 'imgui', '__init__.py')
-version_line = list(filter(lambda l: l.startswith('VERSION'), open(init)))[0]
-
-#VERSION = get_version(eval(version_line.split('=')[-1]))
-README = os.path.join(os.path.dirname(__file__), 'README.md')
 
 
 if sys.platform in ('cygwin', 'win32'):  # windows
@@ -73,7 +59,6 @@ else:
 
 def extension_sources(path):
     sources = ["{0}{1}".format(path, '.pyx' if USE_CYTHON else '.cpp')]
-    
     if not USE_CYTHON:
         # note: Cython will pick these files automatically but when building
         #       a plain C++ sdist without Cython we need to explicitly mark
@@ -97,10 +82,10 @@ def extension_sources(path):
 
 def backend_extras(*requirements):
     """Construct list of requirements for backend integration.
-
     All built-in backends depend on PyOpenGL so add it as default requirement.
     """
     return ["PyOpenGL"] + list(requirements)
+
 
 EXTRAS_REQUIRE = {
     'Cython':  ['Cython>=3.16,'],

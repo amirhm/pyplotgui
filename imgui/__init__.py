@@ -1,14 +1,15 @@
-# -*- coding: utf-8 -*-
-VERSION = (2, 0, 0)  # PEP 386
-__version__ = ".".join([str(x) for x in VERSION])
-
 from imgui.core import *  # noqa
+from importlib.metadata import version, PackageNotFoundError
+
+try:
+    __version__ = version("pyplotgui")  # replace with your actual package name
+except PackageNotFoundError:
+    __version__ = "0.0.0"  # fallback or handle error
+
+
 from imgui import core
 from imgui.extra import *  # noqa
 from imgui import extra
-from imgui import _compat
-from imgui import internal
-from imgui import plot
 
 # TODO: Complete and correcte doc text for ImGui v1.79
 
