@@ -8,7 +8,7 @@ Notes:
 """
 from libcpp cimport bool
 
-from enums cimport ImGuiKey_, ImGuiCol_, ImGuiSliderFlags_
+from imgui.enums cimport ImGuiKey_, ImGuiCol_, ImGuiSliderFlags_
 
 cdef extern from "imgui.h":
     # ====
@@ -708,7 +708,7 @@ cdef extern from "imgui.h":
         float                       Ascent # ✗
         float                       Descent # ✗
         int                         MetricsTotalSurface # ✗
-        ImU8                        Used4kPagesMap[(IM_UNICODE_CODEPOINT_MAX+1)/4096/8] # ✗
+        ImU8                        Used4kPagesMap[(IM_UNICODE_CODEPOINT_MAX+1)//4096//8] # ✗
         
         # Methods
         const ImFontGlyph*FindGlyph(ImWchar c) except + # ✗

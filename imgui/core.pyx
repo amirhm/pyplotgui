@@ -31,11 +31,11 @@ from libcpp cimport bool
 FLOAT_MIN = FLT_MIN
 FLOAT_MAX = FLT_MAX
 
-cimport cimgui
-cimport core
-cimport enums
-cimport ansifeed
-cimport internal
+from imgui cimport cimgui
+from imgui cimport core
+from imgui cimport enums
+from imgui cimport ansifeed
+from imgui cimport internal
 
 from cpython.version cimport PY_MAJOR_VERSION
 
@@ -3034,7 +3034,7 @@ cdef class _InputTextSharedBuffer(object):
 
 cdef _InputTextSharedBuffer _input_text_shared_buffer = _InputTextSharedBuffer() 
     
-cdef int _ImGuiInputTextCallback(cimgui.ImGuiInputTextCallbackData* data):
+cdef int _ImGuiInputTextCallback(cimgui.ImGuiInputTextCallbackData* data) noexcept:
     cdef _ImGuiInputTextCallbackData callback_data = _ImGuiInputTextCallbackData.from_ptr(data)
     callback_data._require_pointer()
     
@@ -3046,7 +3046,7 @@ cdef int _ImGuiInputTextCallback(cimgui.ImGuiInputTextCallbackData* data):
     cdef ret = (<_callback_user_info>callback_data._ptr.UserData).callback_fn(callback_data)
     return ret if ret is not None else 0
 
-cdef int _ImGuiInputTextOnlyResizeCallback(cimgui.ImGuiInputTextCallbackData* data):
+cdef int _ImGuiInputTextOnlyResizeCallback(cimgui.ImGuiInputTextCallbackData* data) noexcept:
     # This callback is used internally if user asks for buffer resizing but does not provide any python callback function.
 
     if data.EventFlag == enums.ImGuiInputTextFlags_CallbackResize:
@@ -3185,7 +3185,7 @@ cdef class _ImGuiInputTextCallbackData(object):
     def insert_chars(self, int pos, str text):
         self._require_pointer()
         self._ptr.InsertChars(pos, _bytes(text))
-    
+
     def select_all(self):
         self._require_pointer()
         self._ptr.SelectAll()
@@ -3193,14 +3193,13 @@ cdef class _ImGuiInputTextCallbackData(object):
     def clear_selection(self):
         self._require_pointer()
         self._ptr.ClearSelection()
-        
+
     def has_selection(self):
         self._require_pointer()
         return self._ptr.HasSelection()
-        
-        
 
-cdef void _ImGuiSizeCallback(cimgui.ImGuiSizeCallbackData* data):
+
+cdef void _ImGuiSizeCallback(cimgui.ImGuiSizeCallbackData* data) noexcept:
     cdef _ImGuiSizeCallbackData callback_data = _ImGuiSizeCallbackData.from_ptr(data)
     callback_data._require_pointer()
     (<_callback_user_info>callback_data._ptr.UserData).callback_fn(callback_data)
@@ -9239,7 +9238,7 @@ def plot_lines(
         float scale_min = FLOAT_MAX,
         float scale_max = FLOAT_MAX,
         graph_size = (0, 0),
-        int stride = sizeof(float),
+        int stride = -1,
     ):
 
     """
@@ -9302,7 +9301,8 @@ def plot_lines(
     """
     if values_count == -1:
         values_count = <int>values.shape[0]
-
+    if stride == -1:
+        stride = sizeof(float)
     # Would be nicer as something like
     #   _bytes(overlay_text) if overlay_text is not None else NULL
     # but then Cython complains about either types or pointers to temporary references.
@@ -9331,7 +9331,7 @@ def plot_histogram(
         float scale_min = FLT_MAX,
         float scale_max = FLT_MAX,
         graph_size = (0, 0),
-        int stride = sizeof(float),
+        int stride = -1,
     ):
     """
     Plot a histogram of float values.
@@ -9394,7 +9394,8 @@ def plot_histogram(
     """
     if values_count == -1:
         values_count = <int>values.shape[0]
-
+    if stride == -1:
+        stride = sizeof(float)
     # Would be nicer as something like
     #   _bytes(overlay_text) if overlay_text is not None else NULL
     # but then Cython complains about either types or pointers to temporary references.

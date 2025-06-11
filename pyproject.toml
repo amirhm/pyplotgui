@@ -38,7 +38,6 @@ authors = [
 
 description="Cython-based Python bindings for dear imgui and implot"
 readme = "README.md"
-license= 'BSD-2-Clause'
 
 classifiers = [
     "Programming Language :: Python :: 3",

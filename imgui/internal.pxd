@@ -9,10 +9,10 @@ Notes:
 """
 from libcpp cimport bool
 
-from enums cimport ImGuiKey_, ImGuiCol_, ImGuiSliderFlags_
+from imgui.enums cimport ImGuiKey_, ImGuiCol_, ImGuiSliderFlags_
 
-cimport cimgui
-cimport enums_internal
+from imgui cimport cimgui
+from imgui cimport enums_internal
 
 cdef UpdateImGuiContext(cimgui.ImGuiContext* _ptr)
 

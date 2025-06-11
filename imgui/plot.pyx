@@ -11,10 +11,10 @@ import warnings
 from libcpp cimport bool
 from libc.stdlib cimport malloc, free
 
-cimport cimplot
-cimport cimgui
-cimport core
-cimport enums
+from imgui cimport cimplot
+from imgui cimport cimgui
+from imgui cimport core
+from imgui cimport enums
 
 from cpython.version cimport PY_MAJOR_VERSION
 
