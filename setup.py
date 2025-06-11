@@ -103,7 +103,7 @@ def backend_extras(*requirements):
     return ["PyOpenGL"] + list(requirements)
 
 EXTRAS_REQUIRE = {
-    'Cython':  ['Cython>=0.24,<0.30'],
+    'Cython':  ['Cython>=3.16,'],
     'cocos2d': backend_extras(
         "cocos2d",
         "pyglet>=1.5.6; sys_platform == 'darwin'",
@@ -131,6 +131,7 @@ EXTENSIONS = [
             ('PYIMGUI_CUSTOM_EXCEPTION', None)
         ] + os_specific_macros + general_macros,
         include_dirs=['imgui', 'config-cpp', 'imgui-cpp', 'ansifeed-cpp'],
+        language="c++"
     ),
     Extension(
         "imgui.internal", extension_sources("imgui/internal"),
@@ -154,41 +155,9 @@ EXTENSIONS = [
 
 
 setup(
-    name='pyplotgui',  # name on PyPi; still imported as 'imgui'
-    version='1.0.0',   # separate versioning from pyimgui
-    packages=find_packages('.'),
-
-    author=u'Erik Härkönen',
-    author_email='erik.harkonen@hotmail.com',
-
-    description="Cython-based Python bindings for dear imgui and implot",
-    long_description=read(README),
-    long_description_content_type="text/markdown",
-
-    url="https://github.com/harskish/pyplotgui",
-
     ext_modules=cythonize(
         EXTENSIONS,
         compiler_directives=compiler_directives, **cythonize_opts
     ),
-    extras_require=EXTRAS_REQUIRE,
     include_package_data=True,
-
-    license='BSD',
-    classifiers=[
-        'Intended Audience :: Developers',
-        'License :: OSI Approved :: BSD License',
-
-        'Programming Language :: Cython',
-        'Programming Language :: Python :: 3',
-
-        'Programming Language :: Python :: Implementation :: CPython',
-        'Programming Language :: Cython',
-
-        'Operating System :: MacOS :: MacOS X',
-        'Operating System :: POSIX :: Linux',
-        'Operating System :: Microsoft :: Windows',
-
-        'Topic :: Games/Entertainment',
-    ],
 )

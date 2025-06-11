@@ -17,7 +17,7 @@ environment = { LC_ALL="en_US.UTF-8", LANG="en_US.UTF-8" }
 
 [build-system]
 requires = [
-    "Cython>=0.24,<0.30",
+    "Cython",
     "PyOpenGL",
     "glfw",
     "wheel",
@@ -25,3 +25,29 @@ requires = [
     "setuptools",
 ]
 build-backend = "setuptools.build_meta"
+[tool.cython]
+language_level = "3"
+
+[project]
+name='pyplotgui'  # name on PyPi; still imported as 'imgui'
+version='1.0.0'   # separate versioning from pyimgui
+
+authors = [
+    {name = 'Erik Härkönen', email = 'erik.harkonen@hotmail.com'}
+]
+
+description="Cython-based Python bindings for dear imgui and implot"
+readme = "README.md"
+license= 'BSD-2-Clause'
+
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: Implementation :: CPython",
+    "Programming Language :: Cython",
+    "Operating System :: MacOS :: MacOS X",
+    "Operating System :: POSIX :: Linux",
+    "Operating System :: Microsoft :: Windows",
+    "Topic :: Games/Entertainment",
+]
+[project.urls]
+Repository = "https://github.com/harskish/pyplotgui"
